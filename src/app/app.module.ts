@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SkillsComponent } from './skills/skills.component';
+import { CertificatesComponent } from './certificates/certificates.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkExperienceComponent,
     HeaderComponent,
-    SkillsComponent
+    SkillsComponent,
+    CertificatesComponent
   ],
   imports: [
     BrowserModule,
