@@ -1,61 +1,22 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Observable} from 'rxjs';
+import { retry, catchError } from 'rxjs';
+import { GeneralService } from './general.service';
 
 @Injectable({
-    providedIn: 'root'
-  })
-export class WorkexperienceService{
-    
-      works = [
-          {
-              charge : "Founder",
-              company: "Team Guachi",
-              startdate: "January 2018",
-              enddate: "Present",
-              city: "Orizaba",
-              country: "Mexico",
-              acomplishments: [
-                  {
-                      description: "Company creator Innovation Crazy Dave Solutions. we search give a unique experience to ours clients with quality software. "
-                  },
-                  {
-                      description: "We have carried out different projects such as 'MediCan'. Specialized software for veterinarians."
-                  }
-              ]
-          },
-          {
-              charge : "Developer front-end",
-              company: "Tesla Motors",
-              startdate: "08/2020",
-              enddate: "05/2022",
-              city: "Fremont",
-              country: "USA",
-              acomplishments: [
-                  {
-                      description: "Design actualization of Tesla Motors User Interface."
-                  },
-                  {
-                      description: "I was leading a group of 5 developers."
-                  }
-              ]
-          },
-          {
-              charge : "Projec Manager",
-              company: "Apple",
-              startdate: "01/2016",
-              enddate: "07/2020",
-              city: "New York",
-              country: "EE.UU",
-              acomplishments: [
-                  {
-                      description: "Leader of a project to automate and increase work activities through artificial intelligence so that people can get the most out of their business impact."
-                  },
-                  {
-                      description: "With the support of team collaborators, we managed to finish 2 different projects on time and in the right way."
-                  }
-              ]
-          }
-      ]
-    getWEInfo(){
-              return this.works;
-    }
+  providedIn: 'root'
+})
+export class WorkExperienceService {
+
+  constructor(private cliente:HttpClient, private service:GeneralService) { }
+
+  getWorkExperienceInfo():Observable<any>{
+    return this.cliente.get(this.service.apiURL+"work-experience", this.service.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.service.handleError)
+    )
   }
+
+}
