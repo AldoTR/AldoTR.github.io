@@ -1,10 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { WorkExperienceService } from '../services/work-experience.service';
 
 @Component({
   selector: 'app-work-experience',
   templateUrl: './work-experience.component.html',
   styleUrls: ['./work-experience.component.css']
 })
-export class WorkExperienceComponent {
+export class WorkExperienceComponent implements OnInit{
+  works:any[
+  ]=[
+    {
+        charge : "default charge",
+        company: "company",
+        startdate: "startdate",
+        enddate: "enddate",
+        city: "city",
+        country: "country",
+        acomplishments: [
+            {
+                description: "default description"
+            },
+            {
+                description: "default description"
+            }
+          ]
+    }];
 
+  constructor(private service:WorkExperienceService){};
+
+  ngOnInit(): void {
+    this.service.getWorkExperienceInfo().subscribe(data=>{
+      this.works=data.works;
+    })
+  }
 }
