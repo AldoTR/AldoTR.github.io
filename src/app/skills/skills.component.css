@@ -1,0 +1,51 @@
+*{
+    font-family:Arial, Helvetica, sans-serif
+}
+dl {
+    margin: 0;
+    padding: 0;
+}
+dt {
+    position: relative; /* IE is dumb */
+    clear: both;
+    display: block;
+    float: left;
+    width: 154px;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 17px;
+    font-size: .9em;
+    text-align: right;
+}
+dd {
+    position: relative; /* IE is dumb */
+    display: block;
+    float: left;
+    width: 197px;
+    height: 20px;
+    margin: 0 0 15px;
+    background:rgb(103, 248, 185);
+ }
+ * html dd { float: none; }
+/* IE is dumb; Quick IE hack, apply favorite filter methods for
+wider browser compatibility */
+
+ dd div {
+    position: relative;
+    background: rgb(0, 255, 34);
+    height: 20px;
+    width: 75%;
+    text-align:right;
+ }
+ dd div strong {
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    display: block;
+    background: white;
+    height: 24px;
+    width: 6px;
+    text-align: left;
+    text-indent: -9999px;
+    overflow: hidden;
+ }
