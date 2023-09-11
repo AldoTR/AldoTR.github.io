@@ -27,7 +27,7 @@ dd {
     background:rgb(103, 248, 185);
  }
  * html dd { float: none; }
-/* IE is dumb; Quick IE hack, apply favorite filter methods for
+/* IE is dumb; Quick IE hack, appy favorite filter methods for
 wider browser compatibility */
 
  dd div {
