@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkExperienceService } from '../services/work-experience.service';
+import { WorkexperienceService } from '../services/work-experience.service';
 
 @Component({
   selector: 'app-work-experience',
@@ -26,7 +26,7 @@ export class WorkExperienceComponent implements OnInit{
           ]
     }];
 
-  constructor(private service:WorkExperienceService){};
+  constructor(private service:WorkexperienceService){};
 
   ngOnInit(): void {
     this.service.getWorkExperienceInfo().subscribe(data=>{

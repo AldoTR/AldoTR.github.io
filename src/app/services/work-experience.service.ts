@@ -7,7 +7,7 @@ import { GeneralService } from './general.service';
 @Injectable({
   providedIn: 'root'
 })
-export class WorkExperienceService {
+export class WorkexperienceService {
 
   constructor(private cliente:HttpClient, private service:GeneralService) { }
 
